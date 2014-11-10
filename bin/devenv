@@ -1,0 +1,40 @@
+#/bin/bash
+set -e
+
+my_dir="$(dirname "$0")"
+. $my_dir/launchers.sh
+. $my_dir/utility.sh
+
+case "$1" in
+  restart)
+    killz
+    start
+    ;;
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  delete)
+    delete
+    ;;
+  killz)
+    killz
+    ;;
+  rmi)
+    rmi
+    ;;
+  images)
+    docker images
+    ;;
+  status)
+    docker ps -a --no-trunc
+    ;;
+  clean)
+    stop || true && delete || true && rmi
+    ;;
+  *)
+    echo $"Usage: $0 {start|stop|restart|killz|delete|rmi|build|push|images|status|clean}"
+    RETVAL=1
+esac
