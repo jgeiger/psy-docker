@@ -1,0 +1,12 @@
+#!/bin/sh
+
+chown jenkins:jenkins /var/lib/jenkins
+chown jenkins:jenkins /var/log/jenkins
+exec sudo -u jenkins -H /usr/bin/java \
+  -Djava.awt.headless=true \
+  -Dorg.apache.commons.jelly.tags.fmt.timeZone=America/Denver \
+  -jar /usr/share/jenkins/jenkins.war \
+  --webroot=/var/cache/jenkins/war \
+  --httpPort=8080 \
+  --ajp13Port=-1 \
+  >> /var/log/jenkins/jenkins.log
