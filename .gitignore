@@ -1,0 +1,9 @@
+*.dev
+*.log
+**/tmp
+coverage/*
+.DS_Store
+*.todo
+.bundle/
+vendor/bundle
+vendor/ruby
