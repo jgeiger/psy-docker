@@ -56,6 +56,8 @@ start_nginx(){
     --publish=80:80 \
     --link=jenkins:jenkins \
     --link=registry:registry \
+    --volume=/data/nginx/sites:/etc/nginx/sites-enabled \
+    --volume=/data/nginx/htpasswd:/etc/nginx/htpasswd \
     --detach=true \
     jgeiger/psy-nginx)
   echo "Started NGINX in container $NGINX"
