@@ -7,3 +7,4 @@ coverage/*
 .bundle/
 vendor/bundle
 vendor/ruby
+psy-nginx/sites
