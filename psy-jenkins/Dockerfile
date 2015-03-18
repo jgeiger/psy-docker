@@ -12,6 +12,7 @@ echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docke
 apt-get update && \
 apt-get -qq -y install openjdk-7-jre-headless jenkins git lxc-docker && \
 usermod -a -G docker jenkins && \
+usermod -a -G users jenkins && \
 chmod 755 /start && \
 apt-get autoremove && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
